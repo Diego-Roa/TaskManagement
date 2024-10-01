@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="create-button">
+        @if (hasPermissionService.checkPermission('/users','_Create')) {
+            <button  mat-flat-button (click)="createUser()">
+                <mat-icon>person</mat-icon>
+                Crear usuario
+            </button>
+        }
+    </div>
+    <div>
+        @if (showTable) {
+            <app-table [table]="table" (deleteChange)="deleteUser($event)" (updateChange)="updateUser($event)"></app-table>
+        }
+    </div>
+</div>
+

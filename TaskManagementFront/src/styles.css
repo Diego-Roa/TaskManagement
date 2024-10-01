@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.container {
+    margin: 3vh;
+}
+
+.create-button {
+    display: flex;
+    justify-content: start;
+    width: 30vh;
+}
+
+.button-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1vh;
+}
+
+.button-modal{
+    width: 15vh;
+}
+
+.form-input{
+    width: max-content;
+}
+
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 1vh;
+  }
+
+  mat-card-header{
+    margin-bottom: 2vh;
+  }
+
+.logoutIcon{
+    display: flex;
+    justify-content: end;
+    height: 4vh;
+    padding-top: 2vh;
+    padding-right: 8vh;
+}

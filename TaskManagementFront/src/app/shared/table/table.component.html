@@ -1,0 +1,36 @@
+<ng-container>
+  <div>
+    <table class="table">
+      <thead class="thead">
+        @for (column of table.columns; track $index) {
+        <th>{{ column.value }}</th>
+        } @if (table.showActions) {
+        <th>Acciones</th>
+        }
+      </thead>
+      <tbody>
+        @for (row of table.data; track $index) {
+        <tr>
+          @for (column of table.columns; track $index) {
+          <td>{{ row[column.key] }}</td>
+          } @if (table.showActions) {
+          <td>
+            @if(hasPermissions.checkPermission('/tasks', '_Update')) {
+              <button  mat-fab aria-label="Update button" (click)="updateRow(row)">
+                <mat-icon>create</mat-icon>
+              </button>
+            }
+            @if (hasPermissions.checkPermission('/tasks', '_Delete')) {
+              <button mat-fab aria-label="Delete button" (click)="deleteRow(row)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            }
+          
+          </td>
+          }
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</ng-container>

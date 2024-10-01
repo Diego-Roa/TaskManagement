@@ -1,0 +1,14 @@
+<div class="logoutIcon">
+    <mat-icon (click)="logout()"> 
+        logout
+    </mat-icon>
+</div>
+<mat-tab-group>
+    @if(hasPermissionService.checkPermission('/users', '_Read')) {
+        <mat-tab  label="Gestión de usuarios"> <app-user-management></app-user-management> </mat-tab>  
+    }
+      
+    @if(hasPermissionService.checkPermission('/tasks', '_Read')) {
+        <mat-tab label="Gestión de tareas"> <app-task-management></app-task-management> </mat-tab>
+    }
+</mat-tab-group>

@@ -1,0 +1,103 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .thead {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .thead th {
+    padding: 12px 15px;
+    border-bottom: 2px solid #dddddd;
+  }
+  
+  tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  tbody td {
+    padding: 12px 15px;
+  }
+  
+  /* Efecto de alternancia de filas */
+  tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  button {
+    padding: 6px 12px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:nth-child(1) {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  button:nth-child(1):hover {
+    background-color: #45a049;
+  }
+  
+  button:nth-child(2) {
+    background-color: #f44336; 
+    color: white;
+  }
+  
+  button:nth-child(2):hover {
+    background-color: #da190b;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .table {
+      display: block;
+      overflow-x: auto;
+    }
+  
+    .thead, tbody, tr, th, td {
+      display: block;
+    }
+  
+    .thead tr {
+      position: sticky;
+      top: 0;
+      background-color: #009879;
+      z-index: 1;
+    }
+  
+    tbody tr {
+      margin-bottom: 15px;
+    }
+  
+    tbody td {
+      padding-left: 50%;
+      position: relative;
+    }
+  
+    tbody td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 50%;
+      padding-left: 15px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+  }
+  

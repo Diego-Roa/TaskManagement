@@ -1,0 +1,79 @@
+<div class="container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ title }}</mat-card-title>
+      </mat-card-header>
+          <mat-card-content>
+              <form [formGroup]="formTask">
+                <div>
+                  <mat-form-field>
+                    <mat-label for="name"> Nombre</mat-label>
+                    <input
+                      matInput
+                      type="text"
+                      class="form-control"
+                      formControlName="name"
+                    />
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field>
+                    <mat-label for="description">Descripción</mat-label>
+                    <textarea
+                      matInput
+                      type="text"
+                      class="form-control"
+                      formControlName="description"
+                    >
+                    </textarea>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field>
+                    <mat-label for="employeeId">Empleado</mat-label>
+                    <mat-select formControlName="employeeId">
+                      <mat-option value="" disabled selected class="option-disabled">
+                        Seleccionar el empleado
+                      </mat-option>
+                      @for (employe of employees; track $index) {
+                      <mat-option [value]="employe.id">
+                        {{ employe.userName }}
+                      </mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field>
+                    <mat-label for="status">Estado</mat-label>
+                    <mat-select formControlName="status">
+                      <mat-option value="" disabled selected class="option-disabled">
+                        Seleccionar el estado
+                      </mat-option>
+                      @for (status of states; track $index) {
+                      <mat-option [value]="status">
+                        {{ status }}
+                      </mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </form>
+              <div mat-dialog-actions class="button-modal-footer">
+                <button 
+                      mat-raised-button 
+                      class="button-modal" 
+                      (click)="onCancel()">Cancelar</button>
+                <button
+                    mat-flat-button
+                    class="button-modal"
+                    (click)="onSave()"
+                    [disabled]="!formTask.valid"
+                >
+                  {{ buttonSubmit }}
+                </button>
+              </div>
+            </mat-card-content>
+    </mat-card>
+  </div>
+  
